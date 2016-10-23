@@ -46,6 +46,9 @@
         #menu .sub-menu li {
             border-bottom: 1px dashed #000;
         }
+        #menu .main-menu:hover .sub-menu{
+            display: block;
+        }            //纯css
     </style>
 </head>
 <body>
@@ -73,18 +76,20 @@
     </li>
 </ul>
 <script>
-    var oUl = document.getElementById("menu");
-    var aLi = oUl.children;
-    for (var i = 0; i < aLi.length; i++) {
-        aLi[i].onmouseover = function () {
-            var subMenu = this.children[1];
-            subMenu.style.display = 'block';
-        }
-        aLi[i].onmouseout = function () {
-            var subMenu = this.children[1];
-            subMenu.style.display = 'none';
-        }
-    }
+//    var oUl = document.getElementById("menu");
+//    var aLi = oUl.children;
+//    for (var i = 0; i < aLi.length; i++) {
+//        aLi[i].onmouseover = function () {
+//            var subMenu = this.children[1];
+//            subMenu.style.display = 'block';
+//        }
+//        aLi[i].onmouseout = function () {
+//            var subMenu = this.children[1];
+//            subMenu.style.display = 'none';
+//        }
+//    }  //children 方法
+
+
 </script>
 </body>
 </html>
