@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        #container{
+            margin: 50px auto;
+            width: 1024px;
+            height: 768px;
+            position: relative;
+            /*top: 50px;*/
+            /*bottom: 50px;*/
+            /*right: auto;*/
+            /*left: auto;*/
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #tab li{
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            line-height: 50px;
+            text-align: center;
+            margin-right: 20px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        #tab{
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+        }
+        #arrow span{
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            line-height: 50px;
+            text-align: center;
+            margin-right: 20px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        #arrow{
+            position: absolute;
+            left: 30px;
+            bottom: 30px;
+        }
+
+        #content img{
+            width: 1024px;
+            height: 768px;
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+        #tab .selected{
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            line-height: 50px;
+            text-align: center;
+            margin-right: 20px;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="tab">
+    <li class="selected">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    </ul>
+    <div id="content">
+        <img class="selected" src="1.jpg" alt=""/>
+        <img src="2.jpg" alt=""/>
+        <img src="3.jpg" alt=""/>
+        <img src="4.jpg" alt=""/>
+    </div>
+    <div id="arrow">
+        <!--<a href="javascript"></a>   //阻止默认跳转-->
+        <span id="next">&lt;</span>
+        <!--<span>&nbsp;</span>-->
+        <span id="prev">&gt;</span>
+    </div>
+</div>
+<script>
+    var oContainer=document.getElementById("container");
+    var oUl=document.getElementById("tab");
+    var aLi=oUl.getElementsByTagName("li");
+    var oDiv=document.getElementById("content");
+    var aImg=oDiv.getElementsByTagName("img");
+    var oNext=document.getElementById("next");
+    var oPrev=document.getElementById("prev");
+    var iNow=0;
+    var timer;
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onselectstart=function(){
+            return false;
+        }
+        aLi[i].index=i;
+        aLi[i].onmouseover=function(){
+//            for(var i=0;i<aLi.length;i++){
+//                aLi[i].className=" ";
+//                aImg[i].className=" ";
+//            }
+            changeImg(this.index);
+            iNow=index;
+//            aLi[i].className="selected";
+//            aImg[i].className="selected";
+        }
+
+    }
+    function changeImg(index){
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].className=" ";
+            aImg[i].className=" ";
+        }
+        aLi[index].className="selected";
+        aImg[index].className="selected";
+    }
+    oPrev.onclick=function(){
+        iNow++;
+        iNow=iNow%aLi.length;
+//        console.log(iNow);
+        changeImg(iNow);
+    }
+    oNext.onclick=function(){
+        iNow--;
+        if(iNow==-1){
+            iNow=aLi.length-1;
+        }
+//        iNow=(iNow+3)%4;
+        changeImg(iNow);
+    }
+    timer=setInterval(function(){
+        oPrev.onclick();
+    },1500);   //定时器
+    oContainer.onmouseover=function(){
+        clearInterval(timer);
+    }
+    oContainer.onmouseout=function(){
+        timer=setInterval(function(){
+            oPrev.onclick();
+        },1500);
+    }
+</script>
+</body>
+</html>
