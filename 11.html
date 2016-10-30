@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自定义滚动条</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+     #max{
+         position: relative;
+         background-color: gray;
+         width: 350px;
+         height: 500px;
+         overflow: hidden;
+     }
+     #txt{
+         width: 320px;
+         position: absolute;
+     }
+     #bg{
+         background-color: aliceblue;
+         width: 30px;
+         height: 500px;
+         position: absolute;
+         right: 0;
+         top: 0;
+     }
+     #drag{
+         background-color: red;
+         width: 30px;
+         height: 30px;
+         cursor: pointer;
+         position: absolute;
+         top: 0;
+     }
+    </style>
+</head>
+<body>
+<div id="max">
+    <div id="txt">#aa li{  }   //后代选择器
+        #aa > li{ }   //子代选择器（不兼容ie6）
+        .bb { }       //类选择器
+        ：hover /:link /:visited /:active       //伪类选择器
+        ul,ol   //分组选择器
+        属性选择器（a[]） 兄弟选择器(div+p第一个p)
+        text-indent:5px;//padding:5px;不变宽
+        权重值  id-100 class-10  tag-1   （遇到id，id最大）
+        外边距：兄弟之间下外，上外取最大值/父子元素，子元素设置外边距，父元素也移动
+        display:none;隐藏，不占位
+        css重置文件：normalize.css
+        js数据类型{基本数据类型，引用数据类型}
+        基本数据类型：数值，字符串，布尔，undefined,null
+        &&与||或  （短路）  &与|或    （不短路）
+        引用数据类型：
+        js对象：内置对象，自定义对象，DOM对象（document object model,文档对象模型）
+        ul>li*3>a{link}
+        #menu .main-menu:hover .sub-menu{  }
+        this.nextSibling   查找兄弟(除ie6 ie8外 空格也算兄弟)/this.nextElementSibling
+        this.parentNode.children(找父亲然后找兄弟)
+        node节点：元素节点1（标签）  文本节点3（空格）
+        cursor: pointer;  鼠标变手状
+        overflow: hidden; 解决塌陷问题/溢出隐藏
+        innerHTML   取值放在时间里
+        function next(emen){
+        do{
+        emen=emen.nextSibling;
+        }while(emen&&emen.nodeType!=1)
+        return emen;
+        }next(this).style.dispiay="block";
+        alt:加载不出来显示   title:鼠标滑过显示
+        相对定位：空间不释放，相对自己  position:relative(left,right,top,bottom)
+        绝对定位：空间释放，相对body(如果有已经定位的父元素，相对父元素) position:abosulte
+        固定定位：相对于浏览器左上角（默认）fixed
+        z-index:1(层级越高/数字越大，离我们越近)
+        timer=setInterval(function(){ oPrev.onclick();},1500);   //定时器
+        animate(oDiv,{left:})
+        span 多用于文字
+        块级元素不设宽高，充满整个父级元素
+        函数立即调用(function(){})();</div>
+    <div id="bg">
+        <div id="drag"></div>
+    </div>
+</div>
+<script>
+    (function(){
+        var oDrag = document.getElementById("drag");
+        var oBg = document.getElementById("bg");
+        var oTxt = document.getElementById("txt");
+
+        oDrag.onmousedown=function(e){
+            e=e||window.event;
+            var iDisY= e.clientY-oDrag.offsetTop;
+            document.onmousemove=function(e){
+                e=e||window.event;
+                var top= e.clientY-iDisY;
+                if(top<0){
+                    top=0;
+                }
+                if(top>oBg.offsetHeight-oDrag.offsetHeight){
+                    top=oBg.offsetHeight-oDrag.offsetHeight;
+                }
+                oDrag.style.top=top+"px";
+                var fScaley=top/(oBg.offsetHeight-oDrag.offsetHeight);
+                oTxt.style.top=-fScaley*(oTxt.offsetHeight-oBg.offsetHeight)+"px";
+                return false;
+            }
+        }
+        document.onmouseup=function(){
+            document.onmousemove=null;
+        }
+    })()
+</script>
+</body>
+</html>
