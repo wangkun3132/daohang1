@@ -105,10 +105,8 @@
             }
         }
         function changeImg(index){
-            //console.log(this);
             for(var i=0; i<aLi.length; i++){
                 aLi[i].className = '';
-                //aImg[i].className = '';
             }
             aLi[index].className = 'selected';
             animate(oContent,{left:-aImg[0].offsetWidth * index})
