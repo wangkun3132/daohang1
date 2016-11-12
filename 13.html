@@ -132,14 +132,14 @@
             changeImg(iNow);
         }
         timer=setInterval(function(){
-            oPrev.onclick();
+            oNext.onclick();
         },1000);
         oContainer.onmouseover=function(){
             clearInterval(timer);
         }
         oContainer.onmouseout=function() {
             timer = setInterval(function () {
-                oPrev.onclick();
+                oNext.onclick();
             }, 1000);
         }
     }
