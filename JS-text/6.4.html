@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CollectDigits(s)</title>
+</head>
+<body>
+<script>
+    function CollectDigits(s)
+    {//收集数字串
+        var result="";
+        var ch;
+        for(var i=0;i<s.length;i++)
+        {
+            ch = s.charAt(i);
+            if (ch>="0" && ch <= "9") result += ch;
+        }
+        return result;
+    }
+
+    var i;
+    i=prompt("请输入一个含有数字的字符串:","")
+    alert("收集的字符串："+CollectDigits(i));
+</script>
+</body>
+</html>
