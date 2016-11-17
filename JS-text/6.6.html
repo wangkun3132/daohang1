@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>成绩</title>
+</head>
+<body>
+<script>
+    var scores=new Array(7);
+    var sum=0;
+    var nb=0;
+    for(var i=0;i<scores.length;i++)
+    {
+        scores[i] = parseFloat(prompt("请输入第"+(i+1)+"门课程的成绩:","0"));
+        sum += scores[i];
+    }
+    document.write("总成绩:"+sum+"<br/>");
+    document.write("平均分:"+Math.round(sum/scores.length)+"<p>");
+
+    document.write("以下为不及格的成绩:");
+    for(var i=0;i<scores.length;i++)
+    {
+        if(scores[i]<60)
+        {
+            nb++;
+            if (nb>1) document.write(",");
+            document.write(scores[i]);
+        }
+    }
+</script>
+</body>
+</html>
