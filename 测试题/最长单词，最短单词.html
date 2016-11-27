@@ -5,31 +5,9 @@
     <title>最长单词，最短单词</title>
 </head>
 <body>
-<!--<script>-->
-    <!--var words;-->
-    <!--var min;-->
-    <!--var max;-->
-    <!--var arrL;-->
-    <!--words = prompt("请输入一行单词:","ab adb bc");-->
-    <!--var arr=words.split(' ');-->
-    <!--for(var i=0;i<arr.length;i++){-->
-        <!--arrL=arr[i].split('');-->
-        <!--for(var i=0;i<arrL.length;i++){-->
-            <!--if(arrL[i].length<arrL[i+1].length){-->
-                <!--min=arrL[i].length;-->
-                <!--max=arrL[i+1].length;-->
-                <!--console.log("min");-->
-                <!--console.log("max");-->
-            <!--}-->
-        <!--}-->
-
-    <!--}-->
-
-
-<!--</script>-->
 <script>
     var str="a aaa www aaaaaa";
-    var arr=str.split("");
+    var arr=str.split(" ");
     var min=arr[0].length;
     var max=arr[0].length;
     var minword=arr[0];
@@ -38,12 +16,39 @@
         if(min>arr[i].length){
             min=arr[i].length;
             minword=arr[i];
-        }
-        if(max<arr[i].length){
+        }else {
             max=arr[i].length;
             maxword=arr[i];
         }
     }
+    console.log(maxword,minword);
+
 </script>
+<!--<script>-->
+
+    <!--var str = 'this is js code aaaaa d';-->
+
+    <!--var arr = str.split(" ");-->
+    <!--var min = arr[0].length;-->
+    <!--var max = arr[0].length;-->
+    <!--var maxword = arr[0];-->
+    <!--var minword = arr[0];-->
+    <!--for(var i=1;i<arr.length;i++){-->
+        <!--if(min > arr[i].length){-->
+            <!--min = arr[i].length;-->
+            <!--minword = arr[i];-->
+        <!--}else{-->
+            <!--max = arr[i].length;-->
+            <!--maxword = arr[i];-->
+        <!--}-->
+
+    <!--}-->
+
+    <!--console.log(min,minword,max, maxword);-->
+
+
+
+
+<!--</script>-->
 </body>
 </html>
