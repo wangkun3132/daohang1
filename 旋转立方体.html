@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转立方体</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+            -webkit-perspective:800px ;
+        }
+        #container{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            /*-webkit-animation: rotateCube 2s linear infinite;*/
+        }
+        @-webkit-keyframes rotateCube {
+            from{
+
+            }
+            to{
+                -webkit-transform: rotateY(360deg);
+            }
+        }
+        .cube{
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15%;
+            font-size: 80px;
+            line-height: 200px;
+            text-align: center;
+            position: absolute;
+        }
+        .one{
+            -webkit-transform: rotateX(90deg) translateZ(100px);
+        }
+        .two{
+            -webkit-transform: translateZ(100px);
+        }
+        .three{
+            -webkit-transform: rotateY(90deg) translateZ(100px);
+        }
+        .four{
+            -webkit-transform: rotateY(180deg) translateZ(100px);
+        }
+        .five{
+            -webkit-transform: rotateY(-90deg) translateZ(100px);
+        }
+        .six{
+            -webkit-transform: rotateX(-90deg) translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="cube one">one</div>
+    <div class="cube two">two</div>
+    <div class="cube three">three</div>
+    <div class="cube four">four</div>
+    <div class="cube five">five</div>
+    <div class="cube six">six</div>
+</div>
+</body>
+</html>
