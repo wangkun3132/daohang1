@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个性旋转按钮</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        #container img{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            -webkit-transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+        <div id="container">
+            <img src="img/close.png" alt=""/>
+            <img src="img/full.png" alt=""/>
+            <img src="img/open.png" alt=""/>
+            <img src="img/prev.png" alt=""/>
+            <img src="img/refresh.png" alt=""/>
+            <img id="home" src="img/home.png" alt=""/>
+        </div>
+<script>
+    var oHome=document.getElementById("home");
+    var aImg=document.getElementsByTagName("img");
+    var bFlag=true;
+    oHome.onclick=function(){
+        if(bFlag){
+            for(var i=0;i<aImg.length-1;i++){
+                var x=-170*Math.sin(i*22.5*Math.PI/180);
+                var y=-170*Math.cos(i*22.5*Math.PI/180);
+                aImg[i].style.webkitTransitionDelay=i*50+'ms';
+                aImg[i].style.webkitTransform='translate('+x+'px,'+y+'px) rotate(-360deg)';
+            }
+            this.style.webkitTransform="rotate(-360deg)";
+        }else{
+            for(var i=0;i<aImg.length-1;i++){
+                this.style.webkitTransitionDuration='1s';
+                aImg[i].style.webkitTransitionDelay=(aImg.length-1-i)*50+'ms';
+                aImg[i].style.webkitTransform='translate(0px,0px) rotate(0deg)';
+            }
+            this.style.webkitTransform="rotate(0deg)";
+        }
+        bFlag=!bFlag;
+    }
+    for(var i=0;i<aImg.length-1;i++){
+        aImg[i].state=false;
+        aImg[i].onclick=function(){
+            if(!this.state){
+                this.state=true;
+                var currTransform=this.style.webkitTransform;
+                this.style.webkitTransform=currTransform+'scale(2)';
+                this.style.opacity=0.6;
+                this.style.webkitTransitionDuration='0.3s';
+//                var that=this;
+//                setTimeout(function(){
+//                    that.style.webkitTransform=currTransform;
+//                    that.style.opacity=1;
+//                    that.state=false;
+//                },300)
+                function fn(){
+                    this.style.webkitTransform=currTransform;
+                    this.style.opacity=1;
+                    this.state=false;
+                    this.removeEventListener('webkitTransitionEnd',fn);
+                }
+                this.addEventListener('webkitTransitionEnd',fn,false);
+            }
+        }
+    }
+</script>
+</body>
+</html>
