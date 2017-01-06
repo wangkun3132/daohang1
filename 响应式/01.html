@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 900px;
+            margin: 10px auto;
+        }
+        #tab{
+            width: 900px;
+            height: 50px;
+            background: red;
+            margin-top: 20px;
+        }
+        #title{
+            width: 900px;
+            height: 50px;
+            background: yellow;
+            margin-top: 20px;
+        }
+        #content{
+            width: 900px;
+            height: 250px;
+            margin-top: 20px;
+        }
+        #left{
+            width: 500px;
+            height: 250px;
+            background: blue;
+            float: left;
+        }
+        #right{
+            width: 300px;
+            height: 250px;
+            background: orange;
+            float: right;
+        }
+        #footer{
+            width: 900px;
+            height: 50px;
+            background: green;
+            margin-top: 20px;
+        }
+        @media (min-width: 1200px){
+            #container{
+                width: 1200px;
+            }
+            #tab{
+                width: 1200px;
+            }
+            #title{
+                width: 1200px;
+            }
+            #content{
+                width: 1200px;
+            }
+            #left{
+                width: 650px;
+            }
+            #right{
+                width: 450px;
+            }
+            #footer{
+                width: 1200px;
+            }
+        }
+        @media (max-width: 959px) {
+            #container{
+                width: 100%;
+            }
+            #tab{
+                width: 100%;
+            }
+            #title{
+                width: 100%;
+            }
+            #content{
+                width: 100%;
+            }
+            #left{
+                width: 60%;
+                float: left;
+            }
+            #right{
+                width: 30%;
+                float: right;
+            }
+            #footer{
+                width: 100%;
+            }
+        }
+        @media (max-width: 767px) {
+            #content {
+                height: 520px;
+            }
+            #left{
+                width: 100%;
+                float: none;
+                margin-bottom: 20px;
+            }
+            #right{
+                width: 100%;
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="tab"></div>
+    <div id="title"></div>
+    <div id="content">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+    <div id="footer"></div>
+</div>
+</body>
+</html>

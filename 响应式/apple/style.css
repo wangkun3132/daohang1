@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    background: #eee;
+}
+#guanggao{
+    height: 40px;
+    background: rgb(68,68,68);
+
+}
+#guanggao span{
+    width: 976px;
+    height: 40px;
+    display: block;
+    text-align: right;
+    margin: 0 auto;
+    line-height: 40px;
+    font-size: 10px;
+    color: #a8a8a8;
+}
+#nav{
+    height: 44px;
+    background: #000;
+}
+#nav ul{
+    width: 1000px;
+    margin: 0 auto;
+}
+#nav li{
+    display: inline-block;
+    margin: 0 28px;
+}
+#nav li:nth-child(1){
+    margin-left: 0;
+}
+#nav li:nth-child(9){
+    margin-right: 0;
+}
+#nav li a{
+    margin: 0 10px;
+}
+#aa{
+    width: 57px;
+}
+#lunbo{
+    height: 594px;
+    background: #cccccc;
+    position: relative;
+}
+#lunbo1,#lunbo2,#lunbo3{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#lunbo1 a{
+    background-color:rgb(10,10,10);
+    background-image: url(gallery/iphone_alt_large.jpg);
+    background-position:center center;
+    background-size:auto 100%;
+    background-repeat: no-repeat;
+    display:block;
+    height: 100%;
+}
+#lunbo2 a{
+    background-color:#f3f3f3;
+    background-image: url(gallery/watch_alt_large.jpg);
+    background-position:50% 50%;
+    background-size:auto 100%;
+    background-repeat: no-repeat;
+    display:block;
+    height: 100%;
+}
+#lunbo3 a{
+    background-color:rgb(255,255,255);
+    background-image: url(gallery/macbookpro_xlarge.jpg);
+    background-position:50% 100%;
+    background-size:100% auto;
+    background-repeat: no-repeat;
+    display:block;
+    height: 100%;
+}
+#promos ul{
+    height: 200px;
+}
+#promos ul li{
+    width: 25%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+#promos ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ffffff;
+}
+#li1{
+    background-image: url(promos/ipad_pro_xlarge.jpg);
+    background-position:center center;
+    background-size:auto 100%;
+    background-repeat: no-repeat;
+}
+#li2{
+    background-image: url(promos/airpods_xlarge.jpg);
+    background-position:center center;
+    background-size:auto 100%;
+    background-repeat: no-repeat;
+}
+#li3{
+    background-image: url(promos/iphone_upgrade_xlarge.jpg);
+    background-position:center center;
+    background-size:auto 100%;
+    background-repeat: no-repeat
+}
+#li4{
+    background-image: url(promos/made_by_apple_xlarge.jpg);
+    background-position:center center;
+    background-size:auto 100%;
+    background-repeat: no-repeat;
+}
+#foot{
+    width: 980px;
+    margin: 0 auto;
+    height: 220px;
+}
+#foot .div1{
+    width: 100%;
+    height: 48px;
+    color: #999;
+    line-height: 48px;
+    font-size: 12px;
+    border-bottom: 1px solid #cccccc;
+}
+.classa{
+    width: 20%;
+    float: left;
+    margin-top: 20px;
+}
+.classa span{
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+}
+.classa a{
+    margin-top: 5px;
+    display: block;
+    font-size: 12px;
+    color: #666;
+}
+#a {
+    margin-top: 20px;
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    color: #999;
+    border-bottom: 1px solid #cccccc;
+}
